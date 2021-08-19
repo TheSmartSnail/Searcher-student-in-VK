@@ -6,7 +6,4 @@
         xmlns:local="clr-namespace:Searcher_student_in_VK"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
 </Window>
