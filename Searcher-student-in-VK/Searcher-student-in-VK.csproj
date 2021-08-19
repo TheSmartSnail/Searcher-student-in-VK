@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Command\" />
+    <Folder Include="Infrastructure\Command\Новая папка\" />
     <Folder Include="Model\" />
   </ItemGroup>
 
