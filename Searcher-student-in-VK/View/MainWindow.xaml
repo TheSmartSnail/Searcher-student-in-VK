@@ -6,4 +6,24 @@
         xmlns:local="clr-namespace:Searcher_student_in_VK"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left" Width="Auto" Height="Auto">
+            <TabItem Header="Редактор ВУЗов">
+                <TabControl>
+                    <TabItem Header="Университеты"></TabItem>
+                    <TabItem Header="Группы об университете"></TabItem>
+                    <TabItem Header="Студенты"></TabItem>
+                </TabControl>
+            </TabItem>
+
+            <TabItem Header="Поиск студентов">
+                
+            </TabItem>
+
+            <TabItem Header="Просмотр студентов">
+                
+            </TabItem>
+        </TabControl>
+
+    </Grid>
 </Window>
