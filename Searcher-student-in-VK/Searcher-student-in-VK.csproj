@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Command\Новая папка\" />
-    <Folder Include="Model\" />
+    <Compile Remove="Infrastructure\Command\Новая папка\**" />
+    <EmbeddedResource Remove="Infrastructure\Command\Новая папка\**" />
+    <None Remove="Infrastructure\Command\Новая папка\**" />
+    <Page Remove="Infrastructure\Command\Новая папка\**" />
   </ItemGroup>
 
 </Project>
