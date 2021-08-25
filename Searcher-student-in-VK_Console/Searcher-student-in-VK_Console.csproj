@@ -6,4 +6,8 @@
     <RootNamespace>Searcher_student_in_VK_Console</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Searcher-student-in-VK\Searcher-student-in-VK.csproj" />
+  </ItemGroup>
+
 </Project>

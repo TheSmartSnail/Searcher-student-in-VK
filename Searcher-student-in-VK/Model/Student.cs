@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Searcher_student_in_VK.Model
 {
-    class Student
+    [Serializable]
+    public class Student
     {
     }
 }

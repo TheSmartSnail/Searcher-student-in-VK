@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace Searcher_student_in_VK.Infrastructure
 {
-    class XmlSaver
+    static public class BinarySaver
     {
-        void Save<T>(T item) where T : class
+        static public void Save<T>(T item, string fileName) where T : class, new()
         {
-            var formatter = new XmlSerializer(typeof(List<T>));
-            var fileName = typeof(T).Name;
+            var formatter = new BinaryFormatter ();
 
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
@@ -19,19 +19,14 @@ namespace Searcher_student_in_VK.Infrastructure
 
         }
 
-        List<T> Load<T>() where T : class
+        static public T Load<T>(string fileName)
+            where T : class, new()
         {
-            var formatter = new XmlSerializer(typeof(List<T>));
-            var fileName = typeof(T).Name;
+            var formatter = new BinaryFormatter();
 
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                if(formatter.Deserialize(fs) is List<T> items)
-                {
-                    return items;
-                }
-
-                return new List<T>();
+                return formatter.Deserialize(fs) as T; 
                 
             }
         }
