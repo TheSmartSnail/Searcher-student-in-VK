@@ -4,19 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Searcher_student_in_VK"
+        xmlns:vm="clr-namespace:Searcher_student_in_VK.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
     <Grid>
         <TabControl TabStripPlacement="Left" Width="Auto" Height="Auto">
             <TabItem Header="Редактор ВУЗов">
                 <TabControl>
                     <TabItem Header="Университеты">
-                        <ComboBox Height="20"
+                        <Grid>
+                            <ComboBox Height="20"
                                   Width="200"
                                   VerticalAlignment="Top"
                                   HorizontalAlignment="Left">
-                            <ComboBoxItem>Test</ComboBoxItem>
-                        </ComboBox>
+                                <ComboBoxItem>Test</ComboBoxItem>
+
+                            </ComboBox>
+                        </Grid>
                     </TabItem>
                     <TabItem Header="Группы об университете"></TabItem>
                     <TabItem Header="Студенты"></TabItem>

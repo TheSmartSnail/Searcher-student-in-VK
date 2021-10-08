@@ -5,7 +5,7 @@ using System.Windows.Markup;
 using System.Windows.Threading;
 using System.Xaml;
 
-namespace Searcher_student_in_VK.ModelView
+namespace Searcher_student_in_VK.ViewModel
 {
     internal abstract class BaseViewModel : INotifyPropertyChanged, IDisposable
     {

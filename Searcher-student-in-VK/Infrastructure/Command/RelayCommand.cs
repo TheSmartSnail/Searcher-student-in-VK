@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Searcher_student_in_VK.Infrastructure.Command
 {
-    internal class LambdaCommand : BaseCommand
+    internal class RelayCommand : BaseCommand
     {
         private readonly Action<object> _Execute;
         private readonly Func<object, bool> _CanExecute;
 
-        public LambdaCommand(Action<object> Execute, Func<object, bool> CanExecute = null)
+        public RelayCommand(Action<object> Execute, Func<object, bool> CanExecute = null)
         {
             _Execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
             _CanExecute = CanExecute;
