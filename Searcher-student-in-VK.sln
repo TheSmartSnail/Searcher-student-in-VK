@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher-student-in-VK", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2BC67102-2277-458D-8C1F-2632C65D1CFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searcher-student-in-VK_Console", "Searcher-student-in-VK_Console\Searcher-student-in-VK_Console.csproj", "{15785DFC-2879-441A-9BE6-42E62B16B818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searcher-student-in-VK_Console", "Searcher-student-in-VK_Console\Searcher-student-in-VK_Console.csproj", "{15785DFC-2879-441A-9BE6-42E62B16B818}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

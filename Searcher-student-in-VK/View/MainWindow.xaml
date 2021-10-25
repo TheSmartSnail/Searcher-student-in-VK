@@ -23,6 +23,24 @@
                                 <ComboBoxItem>Test</ComboBoxItem>
 
                             </ComboBox>
+                            <Button 
+                                    Content="Добавить" 
+                                    HorizontalAlignment="Left" 
+                                    Margin="205,0,0,0" 
+                                    VerticalAlignment="Top"  
+                                    Width="67"/>
+                            <Button 
+                                Content="Редактировать" 
+                                HorizontalAlignment="Left" 
+                                Margin="277,0,0,0" 
+                                VerticalAlignment="Top" 
+                                Width="67"/>
+                            <DataGrid 
+                                Height="auto"
+                                Width="auto"
+                                Margin="0,25,0,0">
+
+                            </DataGrid>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Группы об университете"></TabItem>
@@ -31,11 +49,11 @@
             </TabItem>
 
             <TabItem Header="Поиск студентов">
-                
+
             </TabItem>
 
             <TabItem Header="Просмотр студентов">
-                
+
             </TabItem>
         </TabControl>
 
