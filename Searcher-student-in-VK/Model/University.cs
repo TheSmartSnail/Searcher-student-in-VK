@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml.Serialization;
-using Searcher_student_in_VK.Infrastructure;
 using Searcher_student_in_VK.Model.Entity;
 
 namespace Searcher_student_in_VK.Model
 {
     public class University : NamedEntity 
     { 
+        public List<GroupVK> GroupsVK { get; set; }
         public List<Student> Students { get; set; }
-        public University(string Name)
+        public University(string Name):base(Name)
         {
-            this.Name = Name;
+            GroupsVK = new List<GroupVK>();
             Students = new List<Student>();
         }
     }
