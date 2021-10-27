@@ -8,20 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using Searcher_student_in_VK.Infrastructure.Data.EntityDbContext;
 using Searcher_student_in_VK.Model;
 using System.Linq;
+using System.Windows.Media.Imaging;
 
 namespace Searcher_student_in_VK.ViewModel
 {
     internal class MainViewModel: BaseViewModel
     {
         #region Main Propertys
-        private List<University> universities;
-        private List<Student> students;
-        private University currentUniversity;
-        private Student currentStudent;
-        public List<University> Universities { get => universities; set => universities = value; }
-        public List<Student> Students { get => students; set => students = value; }
-        public University CurrentUniversity { get => currentUniversity; set => currentUniversity = value; }
-        public Student CurrentStudent { get => currentStudent; set => currentStudent = value; }
+        public List<University> Universities { get; set; }
+        public List<Student> Students { get; set; }
+        public University CurrentUniversity { get; set; }
+        public Student CurrentStudent { get; set; }
+
+        public BitmapImage BitImage { get; set; }
         #endregion
 
         #region Commands
@@ -41,6 +40,7 @@ namespace Searcher_student_in_VK.ViewModel
 
         #endregion
 
+
         public MainViewModel()
         {
             #region DB conntection
@@ -49,8 +49,8 @@ namespace Searcher_student_in_VK.ViewModel
             #endregion
 
             #region Propertys init
-            db.Universities.Load();
-            Universities = db.Universities.ToList();
+            Universities=db.Universities.Include(i=>i.GroupsVK).ToList();
+            CurrentUniversity = Universities[9];
             
             
             #endregion

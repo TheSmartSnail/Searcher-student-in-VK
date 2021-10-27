@@ -20,9 +20,13 @@ namespace Searcher_student_in_VK
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string MikhailMolodec { get; set; }
         public MainWindow()
         {
+            
             InitializeComponent();
+            MikhailMolodec = "Politic, lider i borec";
+
         }
     }
 }

@@ -7,6 +7,7 @@
         xmlns:vm="clr-namespace:Searcher_student_in_VK.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -19,9 +20,10 @@
                             <ComboBox Height="20"
                                   Width="200"
                                   VerticalAlignment="Top"
-                                  HorizontalAlignment="Left">
-                                <ComboBoxItem>Test</ComboBoxItem>
-
+                                  HorizontalAlignment="Left"
+                                  ItemsSource="{Binding Path=Universities}"
+                                  DisplayMemberPath="Name"
+                                  SelectedValue="{Binding CurrentUniversity}">
                             </ComboBox>
                             <Button 
                                     Content="Добавить" 
@@ -38,9 +40,38 @@
                             <DataGrid 
                                 Height="auto"
                                 Width="auto"
-                                Margin="0,25,0,0">
+                                Margin="0,25,0,24"
+                                AutoGenerateColumns="False"
+                                ItemsSource="{Binding Path=CurrentUniversity.GroupsVK}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn
+                                    Binding="{Binding Name}"
+                                    Header="Name"/>
 
+                                    <DataGridTemplateColumn Header="Image" Width="50"
+                                    IsReadOnly="True">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Image Source="{Binding Photo}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    
+                                  
+                                </DataGrid.Columns> 
                             </DataGrid>
+                            <Button 
+                                Content="Добавить" 
+                                HorizontalAlignment="Left" 
+                                Margin="0,0,0,0" 
+                                VerticalAlignment="Bottom"  
+                                Width="66"/>
+                            <Button 
+                                Content="Удалить" 
+                                HorizontalAlignment="Left" 
+                                Margin="71,0,0,0" 
+                                VerticalAlignment="Bottom"  
+                                Width="66"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Группы об университете"></TabItem>
@@ -49,7 +80,7 @@
             </TabItem>
 
             <TabItem Header="Поиск студентов">
-
+                
             </TabItem>
 
             <TabItem Header="Просмотр студентов">

@@ -8,10 +8,12 @@ namespace Searcher_student_in_VK.Model.Entity
     {
         public string Name { get; set; }
 
-        protected NamedEntity(string Name)
+        public NamedEntity(string Name)
         {
             this.Name = Name;
         }
+
+
 
     }
 }

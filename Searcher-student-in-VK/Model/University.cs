@@ -9,7 +9,7 @@ namespace Searcher_student_in_VK.Model
     { 
         public List<GroupVK> GroupsVK { get; set; }
         public List<Student> Students { get; set; }
-        public University(string Name):base(Name)
+        public University(string name):base(name)
         {
             GroupsVK = new List<GroupVK>();
             Students = new List<Student>();

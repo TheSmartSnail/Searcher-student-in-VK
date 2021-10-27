@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Searcher_student_in_VK.Model;
+using Searcher_student_in_VK.Model.Entity;
 
 namespace Searcher_student_in_VK.Infrastructure.Data.EntityDbContext
 {
     public class UniversityDB: DbContext
     {
         private readonly StreamWriter logStream = new StreamWriter("mylog.txt", true);
-        private readonly string connectionString= @"Server = (localdb)\MSSQLLocalDB;Initial Catalog=master; Integrated Security = True";
-
+        private readonly string connectionString= @"Server = (localdb)\MSSQLLocalDB;Initial Catalog=SSVK; Integrated Security = True";
         //Набор объектов в БД
         public DbSet<University> Universities { get; set; }
+
 
         public UniversityDB() : base() { }
 
