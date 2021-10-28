@@ -35,29 +35,22 @@ namespace Searcher_student_in_VK_Console
             db.Database.EnsureCreated();
 
             List<University> unis = new List<University>();
-            List<Student> studs = new List<Student>();
-            List<GroupVK> groups = new List<GroupVK>();
-
-            
-
-            for (int i = 0; i < 50; i++)
-            {
-                studs.Add(new Student(RandomString(random.Next(10))));
-
-                //RandomString(random.Next(3, 10))
-            }
-
-            for (int i = 0; i < 5; i++)
-            {
-                groups.Add(new GroupVK(RandomString(random.Next(10))));
-            }
-
 
             for (int i = 0; i < 10; i++)
             {
-                unis.Add(new University(RandomString(random.Next(10))));
-                unis[i].GroupsVK.AddRange(groups);
-                unis[i].Students.AddRange(studs);
+                unis.Add(new University("University " + RandomString(random.Next(3, 10))));
+
+                for (int j = 0; j < 50; j++)
+                {
+                    unis[i].Students.Add(new Student("Student "+RandomString(random.Next(3, 10))));
+
+                }
+
+                for (int j = 0; j < 5; j++)
+                {
+                    unis[i].GroupsVK.Add(new GroupVK("GroupsVK " + RandomString(random.Next(3, 10))));
+                }
+
             }
             db.Universities.AddRange(unis);
             db.SaveChanges();

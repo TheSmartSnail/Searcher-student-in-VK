@@ -15,9 +15,12 @@ namespace Searcher_student_in_VK.ViewModel
     internal class MainViewModel: BaseViewModel
     {
         #region Main Propertys
-        public List<University> Universities { get; set; }
+        private List<University> universities;
+        public List<University> Universities { get => universities; set=> Set(ref universities, value); }
         public List<Student> Students { get; set; }
-        public University CurrentUniversity { get; set; }
+
+        private University _CurrentUniversity;
+        public University CurrentUniversity { get => _CurrentUniversity; set => Set(ref _CurrentUniversity, value); }
         public Student CurrentStudent { get; set; }
 
         public BitmapImage BitImage { get; set; }
@@ -38,11 +41,27 @@ namespace Searcher_student_in_VK.ViewModel
 
         #endregion
 
+        #region Add Uni Command
+        public ICommand AddUniCommand { get; }
+        public string NameNewUni { get => nameNewUni; set => Set(ref nameNewUni,value); }
+        
+
+        private string nameNewUni;
+        private bool CanAddUniAppCommandExecute(object p) => true;
+        private void OnAddUniCommandExecute(object p)
+        {
+            Universities.Add(new University(NameNewUni));
+        }
+        #endregion
         #endregion
 
 
         public MainViewModel()
         {
+            #region Command init
+            CloseAppCommand = new RelayCommand(OnCloseAppCommandExecute, CanCloseAppCommandExecute);
+            AddUniCommand = new RelayCommand(OnAddUniCommandExecute, CanAddUniAppCommandExecute);
+            #endregion
             #region DB conntection
             using UniversityDB db = new UniversityDB();
 
@@ -55,9 +74,7 @@ namespace Searcher_student_in_VK.ViewModel
             
             #endregion
 
-            #region Command init
-            CloseAppCommand = new RelayCommand(OnCloseAppCommandExecute, CanCloseAppCommandExecute);
-            #endregion
+            
         }
     }
 }
