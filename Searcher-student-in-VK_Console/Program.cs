@@ -15,10 +15,6 @@ namespace Searcher_student_in_VK_Console
 
     class Program
     {
-
-
-
-
         private static Random random = new Random();
         public static string RandomString(int length)
         {
@@ -48,7 +44,7 @@ namespace Searcher_student_in_VK_Console
 
                 for (int j = 0; j < 5; j++)
                 {
-                    unis[i].GroupsVK.Add(new GroupVK("GroupsVK " + RandomString(random.Next(3, 10))));
+                    //unis[i].GroupsVK.Add(new GroupVK("GroupsVK " + RandomString(random.Next(3, 10))));
                 }
 
             }

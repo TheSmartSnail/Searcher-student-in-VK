@@ -6,24 +6,27 @@
         xmlns:local="clr-namespace:Searcher_student_in_VK"
         xmlns:vm="clr-namespace:Searcher_student_in_VK.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Closing="Window_Closing">
 
     <Window.DataContext>
-        <vm:MainViewModel/>
+        <vm:MainViewModel x:Name="mainViewModel"/>
     </Window.DataContext>
     <Grid>
         <TabControl TabStripPlacement="Left" Width="Auto" Height="Auto">
             <TabItem Header="Редактор ВУЗов">
                 <TabControl>
-                    <TabItem Header="Университеты и их группы ВК">
+                    <TabItem Header="Студенты">
                         <Grid>
-                            <ComboBox Height="20"
+                            <ComboBox Height="auto"
+                                  
                                   Width="200"
                                   VerticalAlignment="Top"
                                   HorizontalAlignment="Left"
-                                  ItemsSource="{Binding Path=Universities}"
+                                  ItemsSource="{Binding Path=Universities, Mode=TwoWay}"
                                   DisplayMemberPath="Name"
-                                  SelectedValue="{Binding CurrentUniversity}"
+                                  IsSynchronizedWithCurrentItem="True"
+                                  SelectedValue="{Binding Path=CurrentUniversity, Mode=TwoWay}"
                                   ScrollViewer.VerticalScrollBarVisibility="Visible"    >
                             </ComboBox>
                             <Button 
@@ -38,13 +41,14 @@
                                 HorizontalAlignment="Left" 
                                 Margin="277,0,0,0" 
                                 VerticalAlignment="Top" 
-                                Width="67"/>
+                                Width="67"
+                                Command="{Binding EditUniCommand}"/>
                             <DataGrid 
                                 Height="auto"
                                 Width="auto"
                                 Margin="0,25,0,24"
                                 AutoGenerateColumns="False"
-                                ItemsSource="{Binding Path=CurrentUniversity.GroupsVK}">
+                                ItemsSource="{Binding Path=CurrentUniversity.Students, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
                                     Binding="{Binding Name}"
@@ -67,14 +71,16 @@
                                 HorizontalAlignment="Left" 
                                 Margin="0,0,0,0" 
                                 VerticalAlignment="Bottom"  
+                                Command="{Binding AddVKCommand}"
                                 Width="66"
                                 />
                             <Button 
                                 Content="Удалить" 
                                 HorizontalAlignment="Left" 
-                                Margin="71,0,0,0" 
+                                Margin="278,0,0,-1" 
                                 VerticalAlignment="Bottom"  
                                 Width="66"
+                                Command="{Binding DelVKCommand}"
                                 />
                             <TextBox 
                                 HorizontalAlignment="Left" 
@@ -85,6 +91,38 @@
                                 Width="120" 
                                 Height="20"
                                 x:Name="AddUniBox"/>
+                            <Button 
+                                Content="Сохранить" 
+                                HorizontalAlignment="Left" 
+                                Margin="550,0,0,0" 
+                                VerticalAlignment="Top"  
+                                Width="67"
+                                Command="{Binding SaveUniCommand}"/>
+                            <Button 
+                                Content="Удалить" 
+                                HorizontalAlignment="Left" 
+                                Margin="478,0,0,0" 
+                                VerticalAlignment="Top"  
+                                Width="67"
+                                Command="{Binding DelUniCommand}"/>
+                            <Button 
+                                Content="Редактировать" 
+                                HorizontalAlignment="Left" 
+                                Margin="205,0,0,0" 
+                                VerticalAlignment="Bottom"  
+                                Width="66"
+                                Command="{Binding EditVKCommand}"
+                                />
+                            <TextBox 
+                                HorizontalAlignment="Left" 
+                                Margin="74,0,0,-1" 
+                                Text="{Binding NameNewVK}"
+                                TextWrapping="Wrap" 
+                                VerticalAlignment="Bottom" 
+                                Width="120" 
+                                Height="20"
+                                x:Name="AddUniBox_Copy"/>
+
                         </Grid>
                     </TabItem>
 

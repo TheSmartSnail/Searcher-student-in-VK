@@ -24,7 +24,32 @@ namespace Searcher_student_in_VK
         {
             
             InitializeComponent();
+            
 
+        }
+
+        //Обработка закрытия окна. Предлагает вызывать или не вызывать комманду SaveData в MainViewModel
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //string messageBoxText = "Хотите сохранить данные?";
+            //string messageBoxCaption = "Закрыть";
+            //MessageBoxResult result;
+
+            //result = MessageBox.Show(messageBoxText, messageBoxCaption,MessageBoxButton.YesNoCancel);
+
+            //switch (result)
+            //{
+            //    case MessageBoxResult.Cancel:
+            //        e.Cancel = true;
+            //        break;
+            //    case MessageBoxResult.Yes:
+            //        mainViewModel.SaveDataCommand.Execute(null);
+            //        break;
+            //    case MessageBoxResult.No:
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
     }
 }

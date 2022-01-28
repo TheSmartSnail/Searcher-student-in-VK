@@ -16,6 +16,15 @@ namespace Searcher_student_in_VK.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 
+
+        /// <summary>
+        /// Реализация Setter с автоматическим уведомления об изменении свойства через OnPropertyChanged()
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <param name="PropertyName"></param>
+        /// <returns></returns>
         protected virtual bool Set<T>(ref T field, T value, [CallerMemberName] string PropertyName = null)
         {
             if (Equals(field, value)) return false;
